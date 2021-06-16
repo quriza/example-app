@@ -1,0 +1,19 @@
+node {
+  stage('Preparation') {
+    echo 'Fetching the code'
+    git branch: 'main', url: 'https://github.com/quriza/example-app.git'
+    echo 'Installing composer'
+    bat 'composer update'
+    bat 'copy .env.testing .env'
+    echo 'dependencies installed'
+  }
+
+  stage('Build') {
+    echo 'Testing...'
+    bat 'vendor/bin/phpunit'
+    echo 'Testing finished'
+  }
+  stage('Results') {
+    echo 'Completed!'
+  }
+}
