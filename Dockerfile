@@ -26,7 +26,7 @@ COPY  . /var/www
 
 RUN composer update
 
-RUN cp .env.testing .env
+
 
 
 

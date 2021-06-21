@@ -27,6 +27,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return json_encode(User::findOrFail($id));
+        \DB::statement("select 1");
+        return json_encode(true);
     }
 }
